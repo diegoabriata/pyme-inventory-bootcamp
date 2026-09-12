@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: pyme-inventory-bootcamp
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/pyme_inventory}
+    username: ${DB_USERNAME:pyme_user}
+    password: ${DB_PASSWORD:pyme_password}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+server:
+  port: 8080

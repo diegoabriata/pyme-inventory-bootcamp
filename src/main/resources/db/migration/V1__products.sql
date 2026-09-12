@@ -1,0 +1,12 @@
+CREATE TABLE products (
+  id UUID PRIMARY KEY,
+  sku VARCHAR(80) NOT NULL UNIQUE,
+  name VARCHAR(160) NOT NULL,
+  description VARCHAR(500),
+  sale_price NUMERIC(19,2) NOT NULL CHECK (sale_price >= 0),
+  minimum_stock INTEGER NOT NULL DEFAULT 0 CHECK (minimum_stock >= 0),
+  active BOOLEAN NOT NULL DEFAULT TRUE,
+  version BIGINT NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

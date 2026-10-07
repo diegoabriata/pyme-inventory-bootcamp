@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         jdk 'JDK21'
+	maven 'Maven3'
     }
 
     stages {
@@ -14,7 +15,7 @@ pipeline {
 
         stage('Build and test') {
             steps {
-                sh './mvnw clean verify'
+                sh 'mvn clean verify'
             }
         }
 
